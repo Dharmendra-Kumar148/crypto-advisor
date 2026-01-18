@@ -1,0 +1,27 @@
+name: Daily Crypto Advisor
+
+on:
+  workflow_dispatch: # Allows you to click a button to run it manually
+
+jobs:
+  run-advisor:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install libraries
+        run: |
+          pip install yfinance google-generativeai
+
+      - name: Run AI Bot
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          python daily_bot.py
