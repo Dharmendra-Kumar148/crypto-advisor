@@ -1,9 +1,9 @@
 name: Daily Crypto Advisor
 
 on:
-  workflow_dispatch:  # Still allows manual clicking
+  workflow_dispatch: # Still allows manual clicking
   schedule:
-    - cron: '30 3 * * *'  # Runs at 3:30 AM UTC (9:00 AM India Time)
+    - cron: "30 3 * * *" # Runs at 3:30 AM UTC (9:00 AM India Time)
 
 jobs:
   run-advisor:
@@ -16,7 +16,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11' # We kept the fix for 3.11 here!
+          python-version: "3.11" # We kept the fix for 3.11 here!
 
       - name: Install libraries
         run: |
